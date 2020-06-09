@@ -20,3 +20,30 @@ xhr.onreadystatechange = function(){
 // 这里是发送请求的地方
 // 发送post请求时，参数是携带的数据，须是字符串，不能是JSON
 xhr.send(null)
+
+// 手写简单的Ajax
+function ajax(url){
+    const p = new Promise((resolve,reject)=>{
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET',url,true)
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                    resolve(xhr.responseText)
+                }else if(xhr.status === 404){
+                    reject(new Error('404 not found'))
+                }
+            }
+        }
+        xhr.send(null)
+    })
+
+    return p
+}
+
+const url = 'http://localhost:3000/test'
+ajax(url).then(res=>{
+    console.log(res)
+}).catch(e=>{
+    console.log(e)
+})
