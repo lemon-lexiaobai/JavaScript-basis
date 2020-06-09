@@ -60,3 +60,9 @@ function newBindEvent(elem, type, selector, fn){
         }
     })
 }
+
+// div3代理
+// newBindEvent(div3,'click','a',function(e){
+//     e.preventDefault()
+//     console.log(this.innerHTML)
+// })
