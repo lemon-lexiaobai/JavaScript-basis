@@ -12,7 +12,7 @@ function loadImg(src){
     })
 }
 
-const url = 'https://img2.sycdn.imooc1.com/5a9fc8070001a82402060220-160-160.jpg'
+const url = 'https://img2.sycdn.imooc.com/5a9fc8070001a82402060220-160-160.jpg'
 loadImg(url).then((img)=>{
     console.log(img.width)
     return img
