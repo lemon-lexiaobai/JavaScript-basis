@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin</title>
+    <style>
+        .fir p{
+            font-size: 16px;
+            line-height: 1;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .sec .thr{
+            margin-bottom: -20px
+        }
+    </style>
+</head>
+<body>
+    <div class="fir">
+        <p>第一行</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p>第二行</p>
+    </div>
+    <div class="sec">
+        <p>abcabcabcabcabc</p>
+        <p>abcabcabcabcabc</p>
+        <p class="thr">abcabcabcabcabc<span>qweqwqeqweqweqweqwe</span></p>
+        <p>abcabcabcabcabc</p>
+    </div>
+    <script>
+        /**
+         * margin纵向重叠问题
+         * 相邻元素的margin-top和margin-bottom会发生重叠
+         * 空白内容的<p></p>也会重叠（空白内容的p标签会被忽略）
+         * */
+
+        /**
+         * margin负值
+         * margin-top 和 margin-left负值，元素向上、向左移动
+         * margin-right负值，右侧元素左移，自身不受影响
+         * margin-bottom负值，下方元素上移，自身不受影响
+         * */
+
+        /**
+         * BFC: Block format context块级格式化上下文
+         * 一块独立渲染区域，内部元素的渲染不会影响边界以外的元素
+         * 形成BFC的常见条件：
+         * 1、float不是none
+         * 2、position是absolute或fixed
+         * 3、overflow不是visible
+         * 4、display是flex、inline-block等
+         *
+         * 清除BFC，可以设置overflow: hidden
+         * */
+    </script>
+</body>
+</html>
