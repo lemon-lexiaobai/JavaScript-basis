@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offsetWidth</title>
+    <style>
+        #a{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #CCC;
+            margin: 10px;
+            background-color: aquamarine;
+            /* 固定offsetWidth */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="a">this is a</div>
+    <script>
+        let a = document.getElementById("a")
+        /**
+         * offsetWidth = 内容宽度 + 内边距 + 边框
+         * 不包括外边距
+         * */
+
+        /**
+         * box-sizing:
+         * 1 content-box
+         *  默认值，width与height只包括内容的宽高，不包括边框、内边距和外边距
+         *
+         * 2 border-box
+         * width与height包括内容、内边距与边框，但不包括外边距
+         * 变相的相当于设置盒子的offsetWidth的值为width
+         * */
+        console.log(a.offsetWidth)
+    </script>
+</body>
+</html>
