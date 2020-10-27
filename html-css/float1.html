@@ -28,7 +28,6 @@
             margin-right: -150px;
         }
         #footer{
-            clear: both;
             text-align: center;
             background-color: #f1f1f1;
         }
@@ -39,11 +38,22 @@
             padding-left: 200px;
             padding-right: 150px;
         }
+
+        /* 手写clearfix */
+        .clearfix:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .clearfix{
+            /* 兼容 IE 版本 */
+            *zoom: 1;
+        }
     </style>
 </head>
 <body>
     <div id="header">this is a head</div>
-    <div id="container">
+    <div id="container" class="clearfix">
         <div id="center" class="column">this is center</div>
         <div id="left" class="column">this is left</div>
         <div id="right" class="column">this is right</div>
