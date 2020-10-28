@@ -3,19 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>flex</title>
+    <style>
+        #container{
+            display: flex;
+            width: 700px;
+            height: 700px;
+            flex-direction: row; /*项目排列方向*/
+            justify-content: flex-start; /*类似于左对齐、右对齐、居中的样式， 不改变项目排列方向*/
+            align-items: flex-start;
+            background-color: #ccc;
+        }
+        .col{
+            width: 200px;
+            height: 200px;
+        }
+        #div1{
+            background-color: aquamarine;
+            align-self: flex-start;
+        }
+        #div2{
+            background-color: darkseagreen;
+            align-self: center;
+        }
+        #div3{
+            background-color: antiquewhite;
+            align-self: flex-end;
+        }
+    </style>
 </head>
 <body>
+    <div id="container">
+        <div id="div1" class="col">div1</div>
+        <div id="div2" class="col">div2</div>
+        <div id="div3" class="col">div3</div>
+    </div>
     <script>
         /**
          * flex:弹性布局，为盒状模型提供最大的灵活性（子元素的float、clear、vertical-align都将失效）
          *
          * flex-direction: 决定主轴的方向（即项目排列方向） row | row-reverse | column | column-reverse
-         * justify-content: 定义了项目在主轴上的对齐方式 flex-start | flex-end | center | space-between | space-around
-         * align-items: 定义项目在交叉轴上如何对齐 flex-start | flex-end | center | baseline | stretch
+         * justify-content: 定义了项目在主轴上(水平方向上)的对齐方式 flex-start | flex-end | center | space-between | space-around
+         * align-items: 定义项目在交叉轴(垂直方向上)上如何对齐 flex-start | flex-end | center | baseline | stretch
          * flex-wrap: 默认情况下，项目都排在一行上，flex-wrap属性定义，如果一条轴线排不下，如何换行 nowrap | wrap |wrap-reverse
-         * align-self:
          * flex-flow: 是flex-direction和flex-wrap属性的简写  <flex-direction> || <flex-wrap>
          * align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，该属性不起作用。
+         * */
+
+        /**
+         * 6个属性设置在项目上
+         * order: 定义项目的排列顺序。数值越小，排列越靠前，默认为0
+         * flex-grow: 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+         * flex-shrink: 定义了项目的缩小比例，默认为1，即空间不足，该项目将缩小
+         * flex-basis: 定义来在分配多于空间之前，项目占据的主轴空间。浏览器根据这个属性
+         *      flex-basis会把width覆盖掉
+         * flex: flex属性是flex-grow、flex-shrink和flex-basis的简写
+         * align-self: 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示可继承父元素的align-items属性，如果没有父元素，则等同于stretch
          * */
     </script>
 </body>
