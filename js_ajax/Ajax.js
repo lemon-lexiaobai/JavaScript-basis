@@ -7,6 +7,14 @@ const xhr = new XMLHttpRequest()
 xhr.open('GET','http://localhost:3000/test',true)
 
 // 对请求的状态进行监听，只要有变化就会执行函数
+/**
+ * readyState：0，1，2，3，4
+ * 0：初始化状态，XMLHttpRequest对象以创建或已被abort()方法重置
+ * 1 open：open方法已调用，但是send()方法未调用。请求还未发送
+ * 2 sent：send()方法已调用，HTTP请求已发送Web服务器，但未收到响应
+ * 3：所有响应头都已经收到。响应体开始接收但未完成
+ * 4：HTTP响应已完全接收
+ * */
 xhr.onreadystatechange = function(){
     if(xhr.readyState === 4){
         if(xhr.status === 200){
@@ -47,3 +55,23 @@ ajax(url).then(res=>{
 }).catch(e=>{
     console.log(e)
 })
+
+
+// 2021/4/5 重写
+const getJSON = (url) => {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', url, true)
+        xhr.setRequestHeader('Accept', 'application/json')
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if(xhr.status === 200 || xhr.status === 304){
+                    resolve(xhr.responseText)
+                }else{
+                    reject(new Error(xhr.responseText))
+                }
+            }
+        }
+        xhr.send()
+    })
+}
